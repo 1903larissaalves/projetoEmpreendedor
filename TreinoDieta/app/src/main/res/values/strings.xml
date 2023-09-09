@@ -41,6 +41,10 @@
     <string name="caloriasDisponiveis">Calorias disponíveis:</string>
 
 
+    <!--Tela de exercicios diarios-->
+    <string name="btnExercicios">Exercícios</string>
+
+
     <string name="salvoSucesso">Salvo com Sucesso!</string>
     <string name="treinoDieta">Treino e Dieta</string>
 
