@@ -6,8 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.larissa.treinodieta.R;
+import com.larissa.treinodieta.dao.imcDAO;
+import com.larissa.treinodieta.models.CalcularIMC;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PesoAvalicoesActivity extends AppCompatActivity {
 
@@ -33,5 +40,28 @@ public class PesoAvalicoesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_peso_avaliacoes);
         setTitle(R.string.labelPesoAvaliacoes);
+
+        listaPesoAvaliacoes();
+    }
+
+    private void listaPesoAvaliacoes(){
+        final ListView listview = (ListView) findViewById(R.id.listaPesoAvaliacoes);
+        imcDAO imcDAO = new imcDAO(this);
+
+        List <CalcularIMC> calcular = imcDAO.buscarHistoricoIMC();
+        imcDAO.close();
+
+        if (calcular.size() > 0){
+            ArrayAdapter<CalcularIMC> adapter = new ArrayAdapter<CalcularIMC>(this, android.R.layout.simple_list_item_1, calcular);
+            ListView historicoIMC = (ListView) findViewById(R.id.listaPesoAvaliacoes);
+            historicoIMC.setAdapter(adapter);
+        } else {
+            List<String> msgSemIMCCadastrado = new ArrayList<>();
+            msgSemIMCCadastrado.add("Nenhum registro de IMC.");
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, msgSemIMCCadastrado);
+            ListView historicoIMC = (ListView) findViewById(R.id.listaPesoAvaliacoes);
+            historicoIMC.setAdapter(adapter);
+        }
     }
 }

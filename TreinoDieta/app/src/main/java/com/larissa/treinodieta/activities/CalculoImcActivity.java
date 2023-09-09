@@ -10,8 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.larissa.treinodieta.R;
+import com.larissa.treinodieta.dao.imcDAO;
+import com.larissa.treinodieta.models.CalcularIMC;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class CalculoImcActivity extends AppCompatActivity {
 
@@ -50,6 +58,7 @@ public class CalculoImcActivity extends AppCompatActivity {
         btncalcularImc = findViewById(R.id.btnCalcular);
         btnlimpar = findViewById(R.id.btnLimpar);
 
+
         btncalcularImc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +91,27 @@ public class CalculoImcActivity extends AppCompatActivity {
             }else {
                 imc = "Obesidade";
             }
+
+            Date dataAtual = Calendar.getInstance().getTime();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            String dataIMC = dateFormat.format(dataAtual);
+            Calendar calendario = Calendar.getInstance();
+            int hora = calendario.get(Calendar.HOUR_OF_DAY);
+            int minuto = calendario.get(Calendar.MINUTE);
+            String horaAtual = String.format("%02d:%02d", hora, minuto);
+
+            imcDAO dao = new imcDAO(this);
+            CalcularIMC calcular = new CalcularIMC();
+            calcular.setData(dataIMC);
+            calcular.setHora(horaAtual);
+            calcular.setPeso(peso);
+            calcular.setAltura(altura);
+            calcular.setResultado(res);
+
+            dao.inserirIMC(calcular);
+            dao.close();
             txtResultado.setText("IMC: " + String.format("%.2f", res ) + " " + " - " + imc);
+
         }
 
     }
