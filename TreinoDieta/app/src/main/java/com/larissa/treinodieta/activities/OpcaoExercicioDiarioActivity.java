@@ -6,11 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.larissa.treinodieta.R;
 
-public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
+public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
+    private TextView textViewExercicio;
+    private List<String> exercicios = new ArrayList<>();
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mMenuInflater =  getMenuInflater();
@@ -31,7 +37,23 @@ public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_peso_avaliacoes);
+        setContentView(R.layout.activity_opcao_exercicio_diario);
         setTitle(R.string.labelOpcaoExercicioDiario);
+        textViewExercicio = findViewById(R.id.textViewExercicio);
+
+        Random random = new Random();
+        exercicios.add("Alongar Costas");
+        exercicios.add("Alongar Pernas");
+        exercicios.add("Alongar Pescoço");
+        exercicios.add("Alongar Braços");
+        exercicios.add("Rotações de Ombros");
+        exercicios.add("Flexão de Quadril em pé");
+        exercicios.add("Alongamento de Panturrilha");
+        exercicios.add("Agachamento Profundo");
+        exercicios.add("Estiramento de Peitoral");
+        exercicios.add("Rotações de Tornozelo");
+
+        textViewExercicio.setText(exercicios.get(random.nextInt(exercicios.size())));
+
     }
 }
