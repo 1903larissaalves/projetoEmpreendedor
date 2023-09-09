@@ -78,7 +78,7 @@ public class MedidasPessoaActivity extends AppCompatActivity {
                 MedidasCorporal medidas = medidasCorporalHelper.getMedidasCorporal();
                 if (!validaCamposObrigatorios()){{
                     Date dataAtual = Calendar.getInstance().getTime();
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
                     String dataMedida = dateFormat.format(dataAtual);
 
                     medidas.setData(dataMedida);
