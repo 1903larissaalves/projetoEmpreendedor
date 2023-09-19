@@ -17,6 +17,8 @@
     <string name="labelPesoAvaliacoes">Peso e avaliações</string>
     <string name="labelOpcaoExercicioDiario">Opção de exercício diário</string>
     <string name="labelControleSono">Controle de sono</string>
+    <string name="labelProgramacaoSemanalExercicios">Programação semanal de exercícios</string>
+    <string name="labelProgramacaoSemanalExerciciosSmall">Programação semanal</string>
 
     <!--Tela de medidas-->
     <string name="antebracoE">Antebraço(E):</string>

@@ -29,6 +29,7 @@
         <activity android:name=".activities.PesoAvalicoesActivity"/>
         <activity android:name=".activities.OpcaoExercicioDiarioActivity"/>
         <activity android:name=".activities.ControleSonoActivity"/>
+        <activity android:name=".activities.ProgramacaoSemanalExerciciosActivity"/>
     </application>
 
 </manifest>

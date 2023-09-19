@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Button pesoAvaliacoes = (Button)findViewById(R.id.btnPesoAvaliacoes);
         Button opcaoExercicioDiario = (Button)findViewById(R.id.btnOpcaoExercicioDiario);
         Button opcaoControleSono = (Button)findViewById(R.id.btnControleSono);
+        Button programacaoSemanalExercicio = (Button)findViewById(R.id.btnProgramacaoSemanalExercicio);
 
 
         contadorCalorias.setOnClickListener(new View.OnClickListener(){
@@ -78,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentControleSono = new Intent(MainActivity.this, ControleSonoActivity.class);
                 startActivity(intentControleSono);
+            }
+        });
+        programacaoSemanalExercicio.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intentProgramacaoSemanalExercicio = new Intent(MainActivity.this, ProgramacaoSemanalExerciciosActivity.class);
+                startActivity(intentProgramacaoSemanalExercicio);
             }
         });
 
