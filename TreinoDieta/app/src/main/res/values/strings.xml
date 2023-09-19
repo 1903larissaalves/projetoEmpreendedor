@@ -16,6 +16,7 @@
     <string name="labelistoricoMedidas">Histórico de Medidas</string>
     <string name="labelPesoAvaliacoes">Peso e avaliações</string>
     <string name="labelOpcaoExercicioDiario">Opção de exercício diário</string>
+    <string name="labelControleSono">Controle de sono</string>
 
     <!--Tela de medidas-->
     <string name="antebracoE">Antebraço(E):</string>

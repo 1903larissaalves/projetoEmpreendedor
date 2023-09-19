@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Button HistoricoMedidas = (Button)findViewById(R.id.btnHistoricoMedidas);
         Button pesoAvaliacoes = (Button)findViewById(R.id.btnPesoAvaliacoes);
         Button opcaoExercicioDiario = (Button)findViewById(R.id.btnOpcaoExercicioDiario);
+        Button opcaoControleSono = (Button)findViewById(R.id.btnControleSono);
 
 
         contadorCalorias.setOnClickListener(new View.OnClickListener(){
@@ -69,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentOpcaoExercicioDiario = new Intent(MainActivity.this, OpcaoExercicioDiarioActivity.class);
                 startActivity(intentOpcaoExercicioDiario);
+            }
+        });
+
+        opcaoControleSono.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intentControleSono = new Intent(MainActivity.this, ControleSonoActivity.class);
+                startActivity(intentControleSono);
             }
         });
 

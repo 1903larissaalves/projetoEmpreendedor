@@ -28,6 +28,7 @@
         <activity android:name=".activities.HistoricoMedidasActivity"/>
         <activity android:name=".activities.PesoAvalicoesActivity"/>
         <activity android:name=".activities.OpcaoExercicioDiarioActivity"/>
+        <activity android:name=".activities.ControleSonoActivity"/>
     </application>
 
 </manifest>
