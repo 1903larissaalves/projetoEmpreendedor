@@ -54,10 +54,7 @@
 
 
     <string name="salvoSucesso">Salvo com Sucesso!</string>
+    <string name="campoObrigatorio"> Campo é obrigatório!</string>
     <string name="treinoDieta">Treino e Dieta</string>
-
-
-
-
 
 </resources>
