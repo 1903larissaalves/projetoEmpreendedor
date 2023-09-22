@@ -16,7 +16,8 @@ import com.larissa.treinodieta.R;
  */
 public class ExercicioSemanalFragment extends Fragment {
 
-    private TextView textView;
+    private TextView textViewTipo;
+    private TextView textViewLista;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,8 +64,15 @@ public class ExercicioSemanalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_exercicio_semanal, container, false);
-        textView = view.findViewById(R.id.txt_display);
-        textView.setText(getArguments().getString("message"));
+
+        String tipoExercicio = getArguments().getString("tipoExercicio").toUpperCase();
+        String listaExercicios = getArguments().getString("listaExercicios");
+
+        textViewTipo = view.findViewById(R.id.txt_tipoExercicio);
+        textViewTipo.setText(tipoExercicio);
+
+        textViewLista = view.findViewById(R.id.txt_listaExercicios);
+        textViewLista.setText(listaExercicios);
 
         return  view;
     }
