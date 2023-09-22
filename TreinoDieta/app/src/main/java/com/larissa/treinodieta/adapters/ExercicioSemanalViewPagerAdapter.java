@@ -1,6 +1,7 @@
 package com.larissa.treinodieta.adapters;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,35 +17,9 @@ public class ExercicioSemanalViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         ExercicioSemanalFragment exercicioSemanalFragment = new ExercicioSemanalFragment();
-        position++;
-
-        String diaDaSemana;
-
-        switch (position) {
-            case 1:
-                diaDaSemana = "Domingo";
-                break;
-            case 2:
-                diaDaSemana = "Segunda-feira";
-                break;
-            case 3:
-                diaDaSemana = "Terça-feira";
-                break;
-            case 4:
-                diaDaSemana = "Quarta-feira";
-                break;
-            case 5:
-                diaDaSemana = "Quinta-feira";
-                break;
-            case 6:
-                diaDaSemana = "Sexta-feira";
-                break;
-            default:
-                diaDaSemana = "Sábado";
-        }
 
         Bundle bundle = new Bundle();
-        bundle.putString("message", diaDaSemana);
+        bundle.putString("message", "Tab " + position);
 
         exercicioSemanalFragment.setArguments(bundle);
 
@@ -54,5 +29,36 @@ public class ExercicioSemanalViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 7; // 7 dias da semana
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        String diaDaSemana;
+
+        switch (position) {
+            case 0:
+                diaDaSemana = "Domingo";
+                break;
+            case 1:
+                diaDaSemana = "Segunda-feira";
+                break;
+            case 2:
+                diaDaSemana = "Terça-feira";
+                break;
+            case 3:
+                diaDaSemana = "Quarta-feira";
+                break;
+            case 4:
+                diaDaSemana = "Quinta-feira";
+                break;
+            case 5:
+                diaDaSemana = "Sexta-feira";
+                break;
+            default:
+                diaDaSemana = "Sábado";
+        }
+        return diaDaSemana;
     }
 }

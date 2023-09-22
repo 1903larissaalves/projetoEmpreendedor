@@ -2,6 +2,7 @@ package com.larissa.treinodieta.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -15,6 +16,7 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private ExercicioSemanalViewPagerAdapter adapter;
+    private TabLayout tabLayout;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -42,5 +44,8 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.pager);
         adapter = new ExercicioSemanalViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
+
+        tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
