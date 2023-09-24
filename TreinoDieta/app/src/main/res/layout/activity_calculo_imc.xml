@@ -81,9 +81,6 @@
         android:id="@+id/linearLayoutBotoes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +93,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/btnLimpar" />
+            android:layout_margin="8dp"
+            android:text="@string/btnLimpar"
+            style="@style/ButtonSecondary" />
 
         <Button
             android:id="@+id/btnCalcular"
@@ -105,7 +104,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/btnCalcular" />
+            android:layout_margin="8dp"
+            android:text="@string/btnCalcular"
+            style="@style/ButtonPrimary" />
     </LinearLayout>
 
     <LinearLayout

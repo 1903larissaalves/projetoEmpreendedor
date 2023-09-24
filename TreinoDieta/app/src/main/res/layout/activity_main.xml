@@ -30,9 +30,6 @@
             android:id="@+id/linearLayoutContadorCalorias"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +42,9 @@
                 android:layout_weight="1"
                 android:insetLeft="8dp"
                 android:insetRight="8dp"
-                android:text="@string/labelContadorCalorias" />
+                android:layout_margin="8dp"
+                android:text="@string/labelContadorCalorias"
+                style="@style/ButtonPrimary" />
 
 
         </LinearLayout>
@@ -54,9 +53,6 @@
             android:id="@+id/linearLayoutCalculoImc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +65,9 @@
                 android:layout_weight="1"
                 android:insetLeft="8dp"
                 android:insetRight="8dp"
-                android:text="@string/labelCalculoImc" />
+                android:layout_margin="8dp"
+                android:text="@string/labelCalculoImc"
+                style="@style/ButtonPrimary" />
 
 
         </LinearLayout>
@@ -78,9 +76,6 @@
             android:id="@+id/linearLayoutMedidas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +88,9 @@
                 android:layout_weight="1"
                 android:insetLeft="8dp"
                 android:insetRight="8dp"
-                android:text="@string/labelMedidasPessoa" />
+                android:layout_margin="8dp"
+                android:text="@string/labelMedidasPessoa"
+                style="@style/ButtonPrimary" />
 
         </LinearLayout>
 
@@ -101,9 +98,6 @@
         android:id="@+id/linearLayoutHistoricoMedidas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +110,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/labelHistoricoMedidas" />
+            android:layout_margin="8dp"
+            android:text="@string/labelHistoricoMedidas"
+            style="@style/ButtonPrimary" />
 
     </LinearLayout>
 
@@ -124,9 +120,6 @@
         android:id="@+id/linearLayoutPesoAvaliacoes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +132,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/labelPesoAvaliacoes" />
+            android:layout_margin="8dp"
+            android:text="@string/labelPesoAvaliacoes"
+            style="@style/ButtonPrimary" />
 
     </LinearLayout>
 
@@ -148,9 +143,6 @@
         android:id="@+id/linearLayoutOpcaoExercicioDiario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +155,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/labelOpcaoExercicioDiario" />
+            android:layout_margin="8dp"
+            android:text="@string/labelOpcaoExercicioDiario"
+            style="@style/ButtonPrimary" />
 
     </LinearLayout>
 
@@ -171,9 +165,6 @@
         android:id="@+id/linearLayoutControleSono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +177,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/labelControleSono" />
+            android:layout_margin="8dp"
+            android:text="@string/labelControleSono"
+            style="@style/ButtonPrimary" />
 
     </LinearLayout>
 
@@ -194,9 +187,6 @@
         android:id="@+id/linearLayoutProgramacaoSemanalExercicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -209,7 +199,9 @@
             android:layout_weight="1"
             android:insetLeft="8dp"
             android:insetRight="8dp"
-            android:text="@string/labelProgramacaoSemanalExercicios" />
+            android:layout_margin="8dp"
+            android:text="@string/labelProgramacaoSemanalExercicios"
+            style="@style/ButtonPrimary" />
 
     </LinearLayout>
 
