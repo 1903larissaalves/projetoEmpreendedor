@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.larissa.treinodieta.R;
+import com.larissa.treinodieta.dao.ExercicioDiarioDao;
+import com.larissa.treinodieta.models.ExercicioDiario;
+import com.larissa.treinodieta.models.MedidasCorporal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,28 +50,37 @@ public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
         txtEcerciciosDiarios = findViewById(R.id.txtEcerciciosDiarios);
         btnExercicio = findViewById((R.id.btnExercicio));
 
+        inserirExercicios();
+
+        List<ExercicioDiario> exerciciosDiario = listaExercicioDiario();
+
         btnExercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opcaoExercicioDiario();
+                opcaoExercicioDiario(exerciciosDiario);
             }
         });
     }
 
-    private void opcaoExercicioDiario(){
-        Random random = new Random();
-        exercicios.add("Alongar Costas");
-        exercicios.add("Alongar Pernas");
-        exercicios.add("Alongar Pescoço");
-        exercicios.add("Alongar Braços");
-        exercicios.add("Rotações de Ombros");
-        exercicios.add("Flexão de Quadril em pé");
-        exercicios.add("Alongamento de Panturrilha");
-        exercicios.add("Agachamento Profundo");
-        exercicios.add("Estiramento de Peitoral");
-        exercicios.add("Rotações de Tornozelo");
+    private void inserirExercicios() {
+        ExercicioDiarioDao dao = new ExercicioDiarioDao(this);
+        dao.inserirExercicioDiario();
+        dao.close();
+    }
 
-        txtEcerciciosDiarios.setText(exercicios.get(random.nextInt(exercicios.size())));
+    private List<ExercicioDiario> listaExercicioDiario() {
+        ExercicioDiarioDao dao = new ExercicioDiarioDao(this);
+
+        List<ExercicioDiario> exercicioDiarios = dao.buscarExerciciosDiario();
+        dao.close();
+
+        return exercicioDiarios;
+    }
+
+    private void opcaoExercicioDiario(List<ExercicioDiario> exercicioDiarios){
+        Random random = new Random();
+
+        txtEcerciciosDiarios.setText(exercicioDiarios.get(random.nextInt(exercicioDiarios.size())).getExercicio());
     }
 
 
