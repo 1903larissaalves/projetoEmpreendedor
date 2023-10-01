@@ -7,11 +7,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.larissa.treinodieta.fragments.ExercicioSemanalFragment;
+import com.larissa.treinodieta.models.ExercicioSemanal;
+
+import java.util.List;
+import java.util.Locale;
 
 public class ExercicioSemanalViewPagerAdapter extends FragmentPagerAdapter {
 
-    public ExercicioSemanalViewPagerAdapter(FragmentManager fm) {
+    private List<ExercicioSemanal> exerciciosSemanal;
+
+    public ExercicioSemanalViewPagerAdapter(FragmentManager fm, List<ExercicioSemanal> exerciciosSemanal) {
         super(fm);
+        this.exerciciosSemanal = exerciciosSemanal;
     }
 
     @Override
@@ -35,52 +42,74 @@ public class ExercicioSemanalViewPagerAdapter extends FragmentPagerAdapter {
         switch (diaDaSemana) {
             case 0:
                 exercicios[0] = "Bíceps";
-                exercicios[1] = "Barra W: 3 x 15" + "\r\n\n" +
-                        "Rosca Scott: 3 x 15" + "\r\n\n" +
-                        "Bíceps Corda: 3 x 15" + "\r\n\n" +
-                        "Rosca Martelo: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("biceps")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
+
                 break;
             case 1:
                 exercicios[0] = "Tríceps";
-                exercicios[1] = "Testa: 3 x 15" + "\r\n\n" +
-                        "Corda: 3 x 15" + "\r\n\n" +
-                        "Banco: 3 x 15" + "\r\n\n" +
-                        "Coice: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("triceps")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
             case 2:
                 exercicios[0] = "Perna";
-                exercicios[1] = "Leg Press 45°: 3 x 15" + "\r\n\n" +
-                        "Agachamento: 3 x 15" + "\r\n\n" +
-                        "Flexor: 3 x 15" + "\r\n\n" +
-                        "Extensor: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("perna")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
             case 3:
                 exercicios[0] = "Costas";
-                exercicios[1] = "Remada Aberta: 3 x 15" + "\r\n\n" +
-                        "Remada Fechada: 3 x 15" + "\r\n\n" +
-                        "Pulley: 3 x 15" + "\r\n\n" +
-                        "Serrote: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("costas")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
             case 4:
                 exercicios[0] = "Peito";
-                exercicios[1] = "Supino Reto: 3 x 15" + "\r\n\n" +
-                        "Supino Inclinado: 3 x 15" + "\r\n\n" +
-                        "Supino Declinado: 3 x 15" + "\r\n\n" +
-                        "Voador: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("peito")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
             case 5:
                 exercicios[0] = "Ombro";
-                exercicios[1] = "Elevação Lateral: 3 x 15" + "\r\n\n" +
-                        "Elevação Frontal: 3 x 15" + "\r\n\n" +
-                        "Encolhimento: 3 x 15" + "\r\n\n" +
-                        "Desenvolvimento: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("ombro")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
             default:
                 exercicios[0] = "Abdômen e Lombar";
-                exercicios[1] = "Abdominal infra: 3 x 15" + "\r\n\n" +
-                        "Abdmonial Supra: 3 x 15" + "\r\n\n" +
-                        "Prancha: 3 x 15" + "\r\n\n" +
-                        "Lombar: 3 x 15" + "\r\n\n";
+                exercicios[1] = "";
+
+                for (ExercicioSemanal exercicio : exerciciosSemanal) {
+                    if (exercicio.getTipoExercicio().toLowerCase(Locale.ROOT).equals("abdomenlombar")) {
+                        exercicios[1] += exercicio.getExercicio() + "\r\n\n";
+                    }
+                }
                 break;
         }
 
@@ -89,6 +118,7 @@ public class ExercicioSemanalViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
+
         return 7; // 7 dias da semana
     }
 

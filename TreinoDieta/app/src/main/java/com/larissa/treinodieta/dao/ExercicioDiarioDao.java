@@ -1,6 +1,5 @@
 package com.larissa.treinodieta.dao;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -59,15 +58,6 @@ public class ExercicioDiarioDao extends SQLiteOpenHelper {
 
         insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Rotações de Tornozelo" + '"' + ");";
         sqLiteDatabase.execSQL(insertExercicio);
-    }
-
-    private ContentValues getInfoExercicioDiario(ExercicioDiario exercicioDiario) {
-
-        ContentValues dados = new ContentValues();
-
-        dados.put("exercicio", exercicioDiario.getExercicio());
-
-        return dados;
     }
 
     @Override
