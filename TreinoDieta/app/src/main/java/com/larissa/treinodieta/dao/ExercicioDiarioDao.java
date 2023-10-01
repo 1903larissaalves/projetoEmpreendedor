@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.larissa.treinodieta.models.ExercicioDiario;
-import com.larissa.treinodieta.models.MedidasCorporal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,51 +25,40 @@ public class ExercicioDiarioDao extends SQLiteOpenHelper {
                 " exercicio TEXT);";
 
         sqLiteDatabase.execSQL(banco);
+
+        inserirExercicioDiario(sqLiteDatabase);
     }
 
-    public void inserirExercicioDiario() {
-        SQLiteDatabase bancoSQL =  getWritableDatabase();
+    public void inserirExercicioDiario(SQLiteDatabase sqLiteDatabase) {
+        String insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Alongar Costas" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        ExercicioDiario exercicio = new ExercicioDiario();
-        exercicio.setExercicio("Alongar Costas");
-        ContentValues dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Alongar Pernas" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Alongar Pernas");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Alongar Pescoço" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Alongar Pescoço");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Alongar Braços" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Alongar Braços");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Rotações de Ombros" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Rotações de Ombros");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Flexão de Quadril em pé" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Flexão de Quadril em pé");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Alongamento de Panturrilha" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Alongamento de Panturrilha");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Agachamento Profundo" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Agachamento Profundo");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Estiramento de Peitoral" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
 
-        exercicio.setExercicio("Estiramento de Peitoral");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
-
-        exercicio.setExercicio("Rotações de Tornozelo");
-        dados = getInfoExercicioDiario(exercicio);
-        bancoSQL.insert("ExercicioDiario", null, dados);
+        insertExercicio = "INSERT INTO ExercicioDiario (exercicio) VALUES (" + '"' + "Rotações de Tornozelo" + '"' + ");";
+        sqLiteDatabase.execSQL(insertExercicio);
     }
 
     private ContentValues getInfoExercicioDiario(ExercicioDiario exercicioDiario) {

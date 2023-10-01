@@ -50,8 +50,6 @@ public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
         txtEcerciciosDiarios = findViewById(R.id.txtEcerciciosDiarios);
         btnExercicio = findViewById((R.id.btnExercicio));
 
-        inserirExercicios();
-
         List<ExercicioDiario> exerciciosDiario = listaExercicioDiario();
 
         btnExercicio.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +58,6 @@ public class OpcaoExercicioDiarioActivity extends AppCompatActivity {
                 opcaoExercicioDiario(exerciciosDiario);
             }
         });
-    }
-
-    private void inserirExercicios() {
-        ExercicioDiarioDao dao = new ExercicioDiarioDao(this);
-        dao.inserirExercicioDiario();
-        dao.close();
     }
 
     private List<ExercicioDiario> listaExercicioDiario() {
