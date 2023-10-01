@@ -24,7 +24,6 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ExercicioSemanalViewPagerAdapter adapter;
     private TabLayout tabLayout;
-    private Button randomizarExercicios;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,7 +47,6 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programacao_semanal_exercicios);
         setTitle(R.string.labelProgramacaoSemanalExerciciosSmall);
-        randomizarExercicios = findViewById(R.id.btnRandomizarExercicios);
 
         List<ExercicioSemanal> exerciciosSemanal = listaExerciciosSemanal();
 
@@ -59,14 +57,6 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-        randomizarExercicios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Exercicios Alterados. Saia da tela e entre novamente para atualizar.", Toast.LENGTH_LONG).show();
-                randomizarExercicios(exerciciosSemanal);
-            }
-        });
     }
 
     private List<ExercicioSemanal> listaExerciciosSemanal() {
@@ -75,11 +65,5 @@ public class ProgramacaoSemanalExerciciosActivity extends AppCompatActivity {
         dao.close();
 
         return exercicios;
-    }
-
-    private void randomizarExercicios(List<ExercicioSemanal> exerciciosSemanal) {
-        ExercicioSemanalDao dao = new ExercicioSemanalDao(this);
-        dao.randomizarExercicioAtual(exerciciosSemanal);
-        dao.close();
     }
 }
