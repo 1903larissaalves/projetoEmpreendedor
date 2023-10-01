@@ -8,7 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.larissa.treinodieta.models.ExercicioSemanal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ExercicioSemanalDao extends SQLiteOpenHelper {
 
@@ -291,5 +294,44 @@ public class ExercicioSemanalDao extends SQLiteOpenHelper {
         cursor.close();
 
         return exerciciosSemanal;
+    }
+
+    public void randomizarExercicioAtual(List<ExercicioSemanal> exerciciosSemanal) {
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String updateExercicio = "UPDATE ExercicioSemanal SET atual = 0;";
+        sqLiteDatabase.execSQL(updateExercicio);
+
+        Integer[] codigos = new Integer[4];
+        Boolean continuar = true;
+        Integer posicaoLivre = 0;
+
+        while(continuar) {
+            Integer codigo = ThreadLocalRandom.current().nextInt(1, 7);
+
+
+            Boolean jaExiste = false;
+
+            for (int i = 0; i < codigos.length; i++) {
+                if (codigos[i] == codigo) {
+                    jaExiste = true;
+                }
+            }
+
+            if (!jaExiste) {
+                codigos[posicaoLivre] = codigo;
+                posicaoLivre++;
+            }
+
+            if (posicaoLivre > 3) {
+                continuar = false;
+            }
+        }
+
+        updateExercicio = "UPDATE ExercicioSemanal SET atual = 1 WHERE codigo IN ("
+                + codigos[0] + ", "
+                + codigos[1] + " ,"
+                + codigos[2] + " ,"
+                + codigos[3] + ");";
+        sqLiteDatabase.execSQL(updateExercicio);
     }
 }
