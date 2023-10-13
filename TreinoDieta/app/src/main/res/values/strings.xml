@@ -19,6 +19,7 @@
     <string name="labelControleSono">Controle de sono</string>
     <string name="labelProgramacaoSemanalExercicios">Programação semanal de exercícios</string>
     <string name="labelProgramacaoSemanalExerciciosSmall">Programação semanal</string>
+    <string name="labelPerfilUsuario">Perfil de usuário</string>
 
     <!--Tela de medidas-->
     <string name="antebracoE">Antebraço(E):</string>
