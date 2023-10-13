@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="opcoes_de_perfil">
-        <item>Opção 1</item>
-        <item>Opção 2</item>
-        <item>Opção 3</item>
-        <item>Outra opção</item>
-    </string-array>
-</resources>
