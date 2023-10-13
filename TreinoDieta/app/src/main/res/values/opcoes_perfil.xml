@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="opcoes_de_perfil">
+        <item>Selecione</item>
         <item>Personal trainer</item>
         <item>Nutricionista</item>
         <item>Usuário</item>
