@@ -8,23 +8,23 @@
     tools:context=".activities.PerfilUsuarioActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayoutEditTextEmailLogin"
+        android:id="@+id/linearLayouImagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="450px"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/EditTextEmailLogin"
+        <ImageView
+            android:id="@+id/imgViewLogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-mail"/>
+            app:srcCompat="@drawable/usuario" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutOpcoesTipoPerfil"
+        android:id="@+id/linearLayoutEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,7 +33,27 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutEditTextEmailLogin">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayouImagem">
+
+        <EditText
+            android:id="@+id/EditTextEmailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutOpcoesTipoPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutEmail">
 
         <Spinner
             android:id="@+id/SpinnerTipoPerfil"
@@ -48,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
