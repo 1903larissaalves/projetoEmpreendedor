@@ -6,10 +6,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.larissa.treinodieta.R;
+import com.larissa.treinodieta.dao.PerfilUsuarioDao;
+import com.larissa.treinodieta.models.PerfilUsuario;
 
 public class PerfilUsuarioActivity extends AppCompatActivity {
+
+    private EditText editEmail;
+    private Spinner spinnerTipoPerfil;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -33,5 +43,51 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
         setTitle(R.string.labelPerfilUsuario);
+
+        editEmail = findViewById(R.id.EditTextEmailLogin);
+        spinnerTipoPerfil = findViewById(R.id.SpinnerTipoPerfil);
+        Button btnSalvar = findViewById(R.id.btnSalvar);
+
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                salvar();
+            }
+        });
+    }
+
+    private void salvar() {
+        if (!this.validaCamposObrigatorios()) { return; }
+
+        PerfilUsuarioDao dao = new PerfilUsuarioDao(this);
+        PerfilUsuario perfilUsuario = new PerfilUsuario();
+        String email = editEmail.getText().toString();
+        String tipoPerfil = spinnerTipoPerfil.getSelectedItem().toString();
+
+        perfilUsuario.setEmail(email);
+        perfilUsuario.setTipousuario(tipoPerfil);
+
+        dao.inserirUsuario(perfilUsuario);
+        dao.close();
+        Toast.makeText(getApplicationContext(), R.string.salvoSucesso , Toast.LENGTH_SHORT).show();
+    }
+
+    private boolean validaCamposObrigatorios() {
+        boolean verificarCamposPreenchidos = true;
+
+        String emailValue = editEmail.getText().toString();
+        int tipoPerfilPosition = spinnerTipoPerfil.getSelectedItemPosition();
+
+        if (emailValue.isEmpty()) {
+            verificarCamposPreenchidos = false;
+            editEmail.setError("Esse campo é obrigatório");
+        }
+
+        if (tipoPerfilPosition == 0) {
+            verificarCamposPreenchidos = false;
+            Toast.makeText(getApplicationContext(), "Selecione o tipo de perfil" , Toast.LENGTH_SHORT).show();
+        }
+
+        return verificarCamposPreenchidos;
     }
 }
