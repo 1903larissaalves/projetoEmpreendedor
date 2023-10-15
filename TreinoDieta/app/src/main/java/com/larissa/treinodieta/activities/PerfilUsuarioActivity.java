@@ -70,6 +70,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         dao.inserirUsuario(perfilUsuario);
         dao.close();
         Toast.makeText(getApplicationContext(), R.string.salvoSucesso , Toast.LENGTH_SHORT).show();
+        limpar();
     }
 
     private boolean validaCamposObrigatorios() {
@@ -89,5 +90,10 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         }
 
         return verificarCamposPreenchidos;
+    }
+
+    private void limpar(){
+        editEmail.setText("");
+        spinnerTipoPerfil.setSelection(0);
     }
 }
