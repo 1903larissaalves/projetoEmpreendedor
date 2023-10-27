@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class PerfilUsuario implements Serializable {
 
     private Long id;
+    private String senha;
     private String data;
     private String email;
     private String tipousuario;
@@ -35,6 +36,10 @@ public class PerfilUsuario implements Serializable {
 
     public String getTipousuario() {
         return tipousuario;
+    }
+    public String getSenha(){return senha;}
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public void setTipousuario(String tipousuario) {

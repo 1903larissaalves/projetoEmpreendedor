@@ -15,19 +15,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.treinoDieta);
+        //inserirUsuario("adm", String.valueOf(123));
 
-        Button contadorCalorias = (Button)findViewById(R.id.btnContadorCalorias);
-        Button calculoImc = (Button)findViewById(R.id.btnCalculoImc);
-        Button medidasPessoa = (Button)findViewById(R.id.btnMedidas);
-        Button HistoricoMedidas = (Button)findViewById(R.id.btnHistoricoMedidas);
-        Button pesoAvaliacoes = (Button)findViewById(R.id.btnPesoAvaliacoes);
-        Button opcaoExercicioDiario = (Button)findViewById(R.id.btnOpcaoExercicioDiario);
-        Button opcaoControleSono = (Button)findViewById(R.id.btnControleSono);
-        Button programacaoSemanalExercicio = (Button)findViewById(R.id.btnProgramacaoSemanalExercicio);
-        Button perfilUsuario = (Button)findViewById(R.id.btnPerfilUsuario);
+        Button contadorCalorias = (Button) findViewById(R.id.btnContadorCalorias);
+        Button calculoImc = (Button) findViewById(R.id.btnCalculoImc);
+        Button medidasPessoa = (Button) findViewById(R.id.btnMedidas);
+        Button HistoricoMedidas = (Button) findViewById(R.id.btnHistoricoMedidas);
+        Button pesoAvaliacoes = (Button) findViewById(R.id.btnPesoAvaliacoes);
+        Button opcaoExercicioDiario = (Button) findViewById(R.id.btnOpcaoExercicioDiario);
+        Button opcaoControleSono = (Button) findViewById(R.id.btnControleSono);
+        Button programacaoSemanalExercicio = (Button) findViewById(R.id.btnProgramacaoSemanalExercicio);
+        Button perfilUsuario = (Button) findViewById(R.id.btnPerfilUsuario);
 
 
-        contadorCalorias.setOnClickListener(new View.OnClickListener(){
+        contadorCalorias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentContadorCalorias = new Intent(MainActivity.this, ContadorCaloriasActivity.class);
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        calculoImc.setOnClickListener(new View.OnClickListener(){
+        calculoImc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentCalculoImc = new Intent(MainActivity.this, CalculoImcActivity.class);
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        medidasPessoa.setOnClickListener(new View.OnClickListener(){
+        medidasPessoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentMedidasPessoa = new Intent(MainActivity.this, MedidasPessoaActivity.class);
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        HistoricoMedidas.setOnClickListener(new View.OnClickListener(){
+        HistoricoMedidas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentMedidasPessoa = new Intent(MainActivity.this, HistoricoMedidasActivity.class);
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        pesoAvaliacoes.setOnClickListener(new View.OnClickListener(){
+        pesoAvaliacoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentPesoAvaliacoes = new Intent(MainActivity.this, PesoAvalicoesActivity.class);
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        opcaoExercicioDiario.setOnClickListener(new View.OnClickListener(){
+        opcaoExercicioDiario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentOpcaoExercicioDiario = new Intent(MainActivity.this, OpcaoExercicioDiarioActivity.class);
@@ -75,21 +76,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        opcaoControleSono.setOnClickListener(new View.OnClickListener(){
+        opcaoControleSono.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentControleSono = new Intent(MainActivity.this, ControleSonoActivity.class);
                 startActivity(intentControleSono);
             }
         });
-        programacaoSemanalExercicio.setOnClickListener(new View.OnClickListener(){
+        programacaoSemanalExercicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentProgramacaoSemanalExercicio = new Intent(MainActivity.this, ProgramacaoSemanalExerciciosActivity.class);
                 startActivity(intentProgramacaoSemanalExercicio);
             }
         });
-        perfilUsuario.setOnClickListener(new View.OnClickListener(){
+        perfilUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentPerfilUsuario = new Intent(MainActivity.this, PerfilUsuarioActivity.class);
@@ -97,6 +98,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
+    //private void inserirUsuario(String nome,String senha){
+    //  Usuario usuario = new Usuario();
+    //usuario.setNome(nome);
+    //usuario.setSenha(senha);
+
+    //loginDao loginDao = new loginDao(this);
+    //String resultado = loginDao.inserirUsuario(usuario);
+    //Log.d("Resultado",resultado);
+    // }
+    // private void autenticarUsuario(String nome, String senha){
+    //   Usuario usuario = new Usuario();
+    // usuario.setNome(nome);
+    //usuario.setSenha(senha);
+
+    //loginDao loginDao = new loginDao(this);
+    //String resultado = loginDao.autenticarUsuario(usuario);
+    //Log.d("resultado", resultado);
+
+    //}
 }

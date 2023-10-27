@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.larissa.treinodieta">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -13,7 +12,7 @@
         android:theme="@style/Theme.TreinoDieta"
         tools:targetApi="31">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.ActivityLogin"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.ActivityResgistro"/>
+        <activity android:name=".activities.MainActivity"/>
         <activity android:name=".activities.ContadorCaloriasActivity"/>
         <activity android:name=".activities.CalculoImcActivity"/>
         <activity android:name=".activities.MedidasPessoaActivity"/>
