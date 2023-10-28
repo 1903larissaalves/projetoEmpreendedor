@@ -59,6 +59,7 @@
             android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:inputType="numberPassword"
             android:hint="Senha" />
 
     </LinearLayout>
