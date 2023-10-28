@@ -24,20 +24,14 @@ public class ActivityLogin extends AppCompatActivity {
         editTextUsuario = findViewById(R.id.editTextUsuario);
         editTextSenha = findViewById(R.id.editTextSenha);
         btnLogin = findViewById(R.id.btnLogin);
-        //btnRegistro = findViewById(R.id.btnRegistro);
 
-        //btnRegistro.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-            //public void onClick(View view) {
-              //  Intent intentRegistro = new Intent(ActivityLogin.this, PerfilUsuarioActivity.class);
-                //startActivity(intentRegistro);
-            //}
-        //});
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean loginId = dbRegistro.checkNomeUsuario(editTextUsuario.getText().toString(), editTextSenha.getText().toString());
                 if (loginId){
+                    dbRegistro.setarUsuarioLogado(editTextUsuario.getText().toString());
+
                     Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
                     startActivity(intent);
                 }else

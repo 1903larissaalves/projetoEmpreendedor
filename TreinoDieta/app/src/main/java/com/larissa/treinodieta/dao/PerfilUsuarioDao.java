@@ -23,6 +23,7 @@ public class PerfilUsuarioDao extends SQLiteOpenHelper {
                 "data TEXT," +
                 "senha TEXT," +
                 "email TEXT," +
+                "logado INTEGER," +
                 "tipoPerfil TEXT);";
         sqLiteDatabase.execSQL(tabela);
 
@@ -56,5 +57,23 @@ public class PerfilUsuarioDao extends SQLiteOpenHelper {
         if (cursor.getCount() > 0)
             return true;
         else return false;
+    }
+
+    public boolean verificarAdminLogado() {
+        SQLiteDatabase myDB = this.getWritableDatabase();
+        Cursor cursor = myDB.rawQuery("select * from PerfilUsuario where email = ? and logado = 1", new String[]{"admin"});
+        if (cursor.getCount() > 0)
+            return true;
+        else return false;
+    }
+
+    public void setarUsuarioLogado(String usuario) {
+        SQLiteDatabase bancoSQL =  getWritableDatabase();
+
+        String sql = "UPDATE PerfilUsuario SET logado = 0;";
+        bancoSQL.execSQL(sql);
+
+        sql = "UPDATE PerfilUsuario SET logado = 1 WHERE email = \"" + usuario + "\";";
+        bancoSQL.execSQL(sql);
     }
 }

@@ -1,21 +1,25 @@
 package com.larissa.treinodieta.activities;
 
 import android.content.Intent;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.larissa.treinodieta.R;
+import com.larissa.treinodieta.dao.PerfilUsuarioDao;
 
 public class MainActivity extends AppCompatActivity {
+    PerfilUsuarioDao dbRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle(R.string.treinoDieta);
-        //inserirUsuario("adm", String.valueOf(123));
+
+        dbRegistro = new PerfilUsuarioDao(this);
 
         Button contadorCalorias = (Button) findViewById(R.id.btnContadorCalorias);
         Button calculoImc = (Button) findViewById(R.id.btnCalculoImc);
@@ -27,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         Button programacaoSemanalExercicio = (Button) findViewById(R.id.btnProgramacaoSemanalExercicio);
         Button perfilUsuario = (Button) findViewById(R.id.btnPerfilUsuario);
 
+        if (!dbRegistro.verificarAdminLogado()) {
+            perfilUsuario.setEnabled(false);
+        }
 
         contadorCalorias.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,23 +106,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    //private void inserirUsuario(String nome,String senha){
-    //  Usuario usuario = new Usuario();
-    //usuario.setNome(nome);
-    //usuario.setSenha(senha);
 
-    //loginDao loginDao = new loginDao(this);
-    //String resultado = loginDao.inserirUsuario(usuario);
-    //Log.d("Resultado",resultado);
-    // }
-    // private void autenticarUsuario(String nome, String senha){
-    //   Usuario usuario = new Usuario();
-    // usuario.setNome(nome);
-    //usuario.setSenha(senha);
-
-    //loginDao loginDao = new loginDao(this);
-    //String resultado = loginDao.autenticarUsuario(usuario);
-    //Log.d("resultado", resultado);
-
-    //}
 }
