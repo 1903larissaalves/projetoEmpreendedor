@@ -20,10 +20,14 @@ public class PerfilUsuarioDao extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String tabela = "CREATE TABLE IF NOT EXISTS PerfilUsuario (" +
                 "id INTEGER PRIMARY KEY," +
-                "data TEXT," + "senha TEXT," +
+                "data TEXT," +
+                "senha TEXT," +
                 "email TEXT," +
                 "tipoPerfil TEXT);";
         sqLiteDatabase.execSQL(tabela);
+
+        String admin = "INSERT INTO PerfilUsuario (email, senha) VALUES (\"admin\", \"123\");";
+        sqLiteDatabase.execSQL(admin);
     }
 
     @Override
