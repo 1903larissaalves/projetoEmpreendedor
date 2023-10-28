@@ -46,6 +46,10 @@ public class ControleSonoActivity extends AppCompatActivity {
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
         }
+        if (id == R.id.menu_logout) {
+            Intent i = new Intent(this, ActivityLogin.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 

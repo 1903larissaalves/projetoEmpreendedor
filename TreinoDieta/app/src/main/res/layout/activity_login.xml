@@ -87,5 +87,4 @@
             android:text="@string/btnLogin" />
     </LinearLayout>
 
-
 </android.support.constraint.ConstraintLayout>
