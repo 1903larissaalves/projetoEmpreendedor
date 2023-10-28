@@ -7,6 +7,7 @@
     <string name="btnSalvar">Salvar</string>
     <string name="btnLimpar">Limpar</string>
     <string name="btnCalcular">Calcular</string>
+    <string name="btnLogin">Login</string>
 
     <!--MainActivity-->
     <string name="labelMedidasPessoa">Medidas Corporal</string>
