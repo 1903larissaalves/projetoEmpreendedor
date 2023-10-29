@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_voltar"
-        android:title="Voltar"
-        android:icon="@drawable/icon_voltar"
+        android:id="@+id/menu_logout"
+        android:title="Sair"
+        android:icon="@drawable/exit"
         app:showAsAction="always"/>
 
 </menu>

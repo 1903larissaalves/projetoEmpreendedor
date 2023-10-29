@@ -32,7 +32,7 @@ public class CalculoImcActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mMenuInflater =  getMenuInflater();
-        mMenuInflater.inflate(R.menu.voltar, menu);
+        mMenuInflater.inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
