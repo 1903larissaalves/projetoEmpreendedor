@@ -1,13 +1,34 @@
 package com.larissa.treinodieta.fragments;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.FileProvider;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.larissa.treinodieta.R;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,8 +37,13 @@ import com.larissa.treinodieta.R;
  */
 public class ExercicioSemanalFragment extends Fragment {
 
+    final static int REQUEST_CODE = 1232;
+    final static int CREATE_PDF = 1;
     private TextView textViewTipo;
     private TextView textViewLista;
+    private String tipoExercicio;
+    private View view;
+    private Activity activity;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,13 +86,13 @@ public class ExercicioSemanalFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_exercicio_semanal, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_exercicio_semanal, container, false);
+        activity = getActivity();
 
-        String tipoExercicio = getArguments().getString("tipoExercicio").toUpperCase();
+        tipoExercicio = getArguments().getString("tipoExercicio").toUpperCase();
         String listaExercicios = getArguments().getString("listaExercicios");
+        Button btnCompartilhar = view.findViewById(R.id.btnCompartilhar);
 
         textViewTipo = view.findViewById(R.id.txt_tipoExercicio);
         textViewTipo.setText(tipoExercicio);
@@ -74,6 +100,70 @@ public class ExercicioSemanalFragment extends Fragment {
         textViewLista = view.findViewById(R.id.txt_listaExercicios);
         textViewLista.setText(listaExercicios);
 
+        btnCompartilhar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { criarPdf(); }
+        });
+
         return  view;
+    }
+
+    public void criarPdf() {
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            activity.getDisplay().getRealMetrics(displayMetrics);
+        } else {
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        }
+
+        view.measure(
+            View.MeasureSpec.makeMeasureSpec(displayMetrics.widthPixels, View.MeasureSpec.EXACTLY),
+            View.MeasureSpec.makeMeasureSpec(displayMetrics.heightPixels, View.MeasureSpec.EXACTLY)
+        );
+
+        view.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+
+        PdfDocument document = new PdfDocument();
+
+        int viewWidth = view.getMeasuredWidth();
+        int viewHeight = view.getMeasuredHeight();
+
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(viewWidth, viewHeight, 1).create();
+        PdfDocument.Page page = document.startPage(pageInfo);
+
+        Canvas canvas = page.getCanvas();
+
+        Paint paint = new Paint();
+        paint.setColor(Color.WHITE);
+
+        view.draw(canvas);
+
+        document.finishPage(page);
+
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File file = new File(downloadsDir, "exercícios_" + tipoExercicio + ".pdf");
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            document.writeTo(fos);
+            document.close();
+            fos.close();
+
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.setType("application/pdf");
+
+            Uri uri = FileProvider.getUriForFile(activity, activity.getApplicationContext().getPackageName() + ".provider", file);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+            activity.startActivity(Intent.createChooser(shareIntent, "Compartilhar PDF"));
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

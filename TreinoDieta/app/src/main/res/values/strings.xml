@@ -49,6 +49,9 @@
     <!--Tela de exercicios diarios-->
     <string name="btnExercicios">Exercícios</string>
 
+    <!--Tela de exercicios semanais-->
+    <string name="btnCompartilhar">Compartilhar</string>
+
     <!--Tela Controle de sono-->
     <string name="horasDiariasSono">Horas diárias de sono:</string>
     <string name="horasDormidas">Horas dormidas:</string>

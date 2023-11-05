@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.larissa.treinodieta">
 
-
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -33,6 +32,16 @@
         <activity android:name=".activities.ControleSonoActivity"/>
         <activity android:name=".activities.ProgramacaoSemanalExerciciosActivity"/>
         <activity android:name=".activities.PerfilUsuarioActivity"/>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
     </application>
 
 </manifest>
